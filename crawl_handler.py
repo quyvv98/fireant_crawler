@@ -148,6 +148,7 @@ def get_all_stock_ohlcs(hub_connection):
 
         # resolution = 1D
         # distance time = 10 years
+        # '2020-06-02'
         get_stock_ohlcs_with_resolution(hub_connection, symbol=symbol, res="1D",
                                         start_time=start_time,
                                         distance_time=30 * 12 * 10, time_sleep=5,

@@ -20,15 +20,15 @@ def mark_symbol_done(symbol, resolution, start, end, data_crawled):
         outfile.write(json.dumps(stocks))
 
 
-def mark_symbol_processing(symbol, resolution):
-    f = open('./data/success_symbols.json', "r")
+def mark_symbol_processing(symbols, resolution="1D"):
+    f = open('./success_symbols.json', "r")
     stocks = json.load(f)
 
     for i, stock in enumerate(stocks[resolution]):
-        if stock['code'] == symbol:
+        if stock['symbol'] in symbols:
             del stocks[resolution][i]
 
-    with open('./data/success_symbols.json', "w") as outfile:
+    with open('./success_symbols.json', "w") as outfile:
         # raw_data = json.dumps(stocks)
         outfile.write(json.dumps(stocks))
 

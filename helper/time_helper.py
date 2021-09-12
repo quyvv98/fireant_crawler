@@ -75,6 +75,12 @@ def next_exchange_day(date_time_str):
 
     return next_day
 
+
+def get_date_of_date_time(date_time_str):
+    date = datetime.datetime.strptime(date_time_str, constant.DATE_TIME_FORMAT)
+    date = date.replace(hour=0)
+    return datetime.datetime.strftime(date, constant.DATE_TIME_FORMAT)
+
 # is_off_day("2020-09-25 15:09:09")
 # is_off_day("2020-09-26 15:09:09")
 # is_off_day("2020-09-27 15:09:09")
