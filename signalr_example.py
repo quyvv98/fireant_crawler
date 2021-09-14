@@ -40,8 +40,8 @@ message = None
 # Do login
 
 time.sleep(10)
-# hub_connection.send("GetBars", ["HPG", "1", "2018-03-05 08:30:00", "2018-03-6 16:30:00"], react_to_message)
-hub_connection.send("GetBars", ["HPG", "1D", "2010-03-05", "2020-03-11"], react_to_message)
+hub_connection.send("GetBars", ["HPG", "1", "2018-03-05 08:30:00", "2018-03-6 16:30:00"], react_to_message)
+# hub_connection.send("GetBars", ["HPG", "1D", "2010-03-05", "2020-03-11"], react_to_message)
 
 time.sleep(300)
 hub_connection.stop()

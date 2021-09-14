@@ -9,7 +9,7 @@ def filter_date(file, ignore_symbols):
     result = []
     result_except_current_time = []
     date_filter = datetime.datetime.strptime('2020-06-03', constant.DATE_FORMAT)
-    with open(f'1D/{file}.csv', 'r') as f1:
+    with open(f'1D_copy/{file}.csv', 'r') as f1:
         reader = csv.reader(f1)
         for i, row in enumerate(reader):
             row_str = ','.join(row) + "\n"
@@ -34,7 +34,7 @@ def filter_date(file, ignore_symbols):
                 # else:
                 #     print("detected duplicate", row_str)
 
-    with open(f'1D/{file}_filter.csv', 'w') as f:
+    with open(f'1D_copy/{file}_filter.csv', 'w') as f:
         f.write(''.join(result))
 
 
@@ -54,7 +54,7 @@ def format_date(symbol):
             row_str = ','.join(row) + "\n"
             result += row_str
 
-    with open(f'1D/{symbol}_format_date.csv', 'w') as f:
+    with open(f'1D_copy/{symbol}_format_date.csv', 'w') as f:
         f.write(result)
 
 
@@ -63,4 +63,4 @@ ignore = ['DNC', 'SIP', 'VIX', 'VNM', 'CTB', 'GKM', 'PVI', 'SSI', 'TDB', 'DXG', 
 # symbol_status_helper.mark_symbol_processing(ignore)
 # symbol_status_helper.mark_symbol_processing()
 
-filter_date('total', [])
+filter_date('total', ignore)
